@@ -4,6 +4,9 @@ import Card from '../components/Card';
 import Input from '../components/Input';
 import NumberContainer from '../components/NumberContainer';
 import Colors from '../constants/colors';
+import TextOpenSans from '../components/TextOpenSans';
+import TextOpenSansBold from '../components/TextOpenSansBold';
+import MainButton from '../components/MainButton';
 
 const StartGameScreen = (props) => {
   const [enteredValue, setEnteredValue] = useState('');
@@ -39,18 +42,18 @@ const StartGameScreen = (props) => {
   if (confirmed) {
     confirmedOutput =
       <Card style={styles.chosenNumberWrapper}>
-        <Text>You selected</Text>
+        <TextOpenSans>You selected</TextOpenSans>
         <NumberContainer>{selectedNumber}</NumberContainer>
-        <Button title='START GAME' onPress={() => { props.onStartGame(selectedNumber); }} />
+        <MainButton title='START GAME' onPress={() => { props.onStartGame(selectedNumber); }} />
       </Card>;
   }
 
   return (
     <TouchableWithoutFeedback onPress={() => { Keyboard.dismiss(); }}>
       <View style={styles.screen}>
-        <Text style={styles.title}>Start a New Game</Text>
+        <TextOpenSansBold style={styles.title}>Start a New Game</TextOpenSansBold>
         <Card style={styles.inputContainer}>
-          <Text>Select a number</Text>
+          <TextOpenSans>Select a number</TextOpenSans>
           <Input
             style={styles.input}
             blurOnSubmit
@@ -62,7 +65,7 @@ const StartGameScreen = (props) => {
           />
           <View style={styles.buttonContainer}>
             <View style={styles.button}>
-              <Button title={'Reset'} onPress={resetInputHandler} color={Colors.accent} />
+              <Button title={'Reset'} onPress={resetInputHandler} color={Colors.red} />
             </View>
             <View style={styles.button}>
               <Button title={'Confirm'} onPress={confirmInputHandler} color={Colors.main} />
@@ -85,7 +88,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     marginVertical: 10,
-    fontFamily: 'open-sans-bold'
   },
   inputContainer: {
     width: 300,

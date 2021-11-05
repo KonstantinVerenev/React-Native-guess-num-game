@@ -60,8 +60,8 @@ export default function App() {
     currentScreen = <GameOverScreen
       numberOfGuessRounds={numberOfGuessRounds}
       userNumber={userNumber}
-      configureNewGame={configureNewGame} /
-    >;
+      configureNewGame={configureNewGame}
+    />;
   }
 
   return (
